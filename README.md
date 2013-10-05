@@ -58,10 +58,10 @@ Tagname in regex: `[A-Za-z0-9](?[\N{U+0030}-\N{U+0039}\N{U+0040}-\N{U+007E}\N{U+
 ## Outro
 
 ### Credits
-m93a (Michal Grňo) - The Writer (I wrote this spec)
-Oscar Godson - The Uniter (he brought us together)
-Phil Andy - The Name Creator (he created this cool name)
-W3C - Thanks for standardizing the Web and sorry for breaking your standards :)
+m93a (Michal Grňo) - The Writer (I wrote this spec)  
+Oscar Godson - The Uniter (he brought us together)  
+Phil Andy - The Name Creator (he created this cool name)  
+W3C - Thanks for standardizing the Web and sorry for breaking your standards :)  
 
 ### External specs
  * [Regex, Perl extension](http://perldoc.perl.org/perlre.html#Regular-Expressions)
@@ -71,6 +71,6 @@ Copyright (c) from 00:00:00 1970-01-01 to 03:14:07 2038-01-19 in Big-Endian by T
 
 OK, actually I (where `I` is a pointer to `m93a`) am the owner but just wanted to say you are free do anything with this spec until the End of Time.
 
-All the software here is provided "[AS IS](http://en.wikipedia.org/wiki/As_is)", without any warranty of any kind etc. You know what I mean.
+All the software here is provided "[AS IS](http://en.wikipedia.org/wiki/As_is)", without warranty of any kind etc. You know what I mean.
 
 And you probably shouldn't try to appropriate or something this spec, treat according to your conscience.
