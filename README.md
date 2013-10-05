@@ -11,7 +11,7 @@ The Namespace Markup Language (`nml`) is a try to create more powerful and user-
 
 ### What's wrong with xml?
 Are you a big fan of `xml`? Me too. "But - wait!" you say, "Then why are you trying to get rid of it?". I am not. `nml` will probably never replace `xml`. And it's not its goal. `nml` can be easily converted to `xml` at any time.
-The problem with `xml` is that it's easy-to-read for parsers but hard-to-write for programmers. Why nobody uses `xhtml`? Because they would loose those comfortable features like boolean attributes, unquoted values and UPPERCASE TAG NAMES (yes, some people still use them). The goal of `nml` is to be as comfortable as possible without loosing nothing of `xml` readability.
+The problem with `xml` is that it's easy-to-read for parsers but hard-to-write for programmers. Why nobody uses `xhtml`? Because they would lose those comfortable features like boolean attributes, unquoted values and UPPERCASE TAG NAMES (yes, some people still use them). The goal of `nml` is to be as comfortable as possible without losing nothing of `xml` readability.
 
 ### What language is nml's default for defining namespaces?
 Huh, that's a good point. Actually - I don't know. Personally I'd like to use something based on `css` syntax but there are many, many possibilities and it's better to let the community decide.
