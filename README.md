@@ -39,7 +39,12 @@ Basically, any file written in `nml` is a _document_. Document is a set of every
 ```
 
 **Normative section**  
-Every `nml` document consists of a _root element_ – either empty or containing child elements and/or text, optionally preceded by a [_doctype declaration_](#doctype). Every document is represented by a DOM [`Document` object](#document-object).
+Every `nml` document is represented by a DOM [`Document` object](#document-object).  
+Every document consists of a _root element_ – either empty or containing child elements and/or text, optionally preceded by a [_doctype declaration_](#doctype).
+
+Every _element_ may be either empty – represented by a [single tag](#single-tag) – or may contain one or more _nodes_ enclosed in [begin tag](#begin-tag) and [end tag](#end-tag), both must have the same tag name and namespace and must be children of the same element (or in case of root, must not be children of an element).
+
+_Node_ is either an element or a text string containing any character but [`U+003C`](#ref-unicode) (LESS-THAN SIGN) and [`U+0000`](#ref-unicode) (NULL).
 
 
 ### Doctype
@@ -75,7 +80,9 @@ Begin tag looks like this: `<name>`. They mark the beginning of the `name` _elem
 End tag is similar to begin tag but it has a slash at the beginning: `</name>`. It marks the end of the `name` _element_.  
 Single tag is a combination of begin and end tags. It looks like this: `<name />` and means the same as this: `<name></name>`, it creates an _empty element_.
 
-What does _element_ mean? Elements are virtual parts of the document that have a special meaning. Elements may have child elements but they don't have to. As an example of what they can do: in `html api` there's an `a` element used to mark that certain piece of text is an anchor/link.
+What does _element_ mean? Elements are virtual parts of the document that have a special meaning defined by their _namespace_. Elements may have child elements but they don't have to. As an example of what they can do: in `html api` there's an `a` element used to mark that certain piece of text is an anchor/link.
+
+_Namespaces_ are sets of rules that define the behaviour of elements. The most common namespace is `html` which defines tags such as `title` (page title) and `a` (anchors). There are many other namespaces, each serves a different purpose. To specify which namespace the element uses you can type `<html:a>` – that creates `a` element in the `html` namespace. If you don't specify the namespace, [default one](#doctype) will be used.
 
 Single and begin tags may have _attributes_ to keep some information. They're based on a simple `foo=bar` format, written
 right after the element name (and a space). In this examle, `foo` is called _attribute name_ or _key_ and `bar` is an
@@ -85,7 +92,7 @@ There are also _single attributes_ (also called _boolean_), created by omitting 
 
 **Example**  
 `<abc>` - Begin tag of an `abc` element.  
-`</foobar>` - End tag of a `foobar` element.  
+`</foo:bar>` - End tag of a `bar` element from `foo` namespace.  
 `<name first=Joe middle=Patata last=Rodriguez />` - Single tag of a `name` element with three attributes.  
 `<a>Hi there!</a>` - A text between two tags, making one `a` element together.  
 `<x><foo /></x>` - The `foo` element is a child of the `x` element.  
@@ -95,13 +102,20 @@ There are also _single attributes_ (also called _boolean_), created by omitting 
 
 **Advanced section**  
 Single tags are interpreted in the same way as in xml.  
-Attributes are interpreted the same way in html5 (unquoted and boolean attributes are allowed).
+Attributes are interpreted the same way in html5 (unquoted and boolean attributes are allowed).  
+To specify which namespace the element uses, type `<ns:tagname>`. If you don't, the [default namespace](#doctype) will be used.  
+Note that nml is **case insensitive**!
 
-All characters in following range are allowed in tag and attribute names: [`U+0041`](#ref-unicode) (LATIN CAPITAL LETTER A) to [`U+02AF`](#ref-unicode) (LATIN SMALL LETTER TURNED H WITH FISHHOOK AND TAIL) plus the [`U+002D`](#ref-unicode) (HYPHEN-MINUS) character.
+All characters in the following range are allowed in tag, namespace and attribute names: [`U+0041`](#ref-unicode) (LATIN CAPITAL LETTER A) to [`U+02AF`](#ref-unicode) (LATIN SMALL LETTER TURNED H WITH FISHHOOK AND TAIL) plus the [`U+002D`](#ref-unicode) (HYPHEN-MINUS) character.
 
 **Normative section**  
-//TODO  
-Tagname ([regex](#ref-regex)): `/[A-\u02AF\-]+/`  
+Identifier ([regex](#ref-regex)): `/[A-\u02AF\-]+/`  
+Attribute ([regex](#ref-regex)): `/` Identifier `(\s*=\s*([^"'\s]+|("[^"]*")|('[^']*')))?/`  
+<a name="begin-tag"></a>Begin tag ([regex](#ref-regex)): `/<` Identifier `(:` Identifier `)?(\s+` Attribute `)*\s*>/`  
+<a name="single-tag"></a>Single tag ([regex](#ref-regex)): `/<` Identifier `(:` Identifier `)?(\s+` Attribute `)*\s*\/>/`  
+<a name="end-tag"></a>End tag ([regex](#ref-regex)): `/<\/` Identifier `\s*\/>/`  
+
+
 
 ### //TODO
 
