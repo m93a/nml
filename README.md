@@ -115,6 +115,8 @@ Attribute ([regex](#ref-regex)): `/` Identifier `(\s*=\s*([^"'\s]+|("[^"]*")|('[
 <a name="single-tag"></a>Single tag ([regex](#ref-regex)): `/<` Identifier `(:` Identifier `)?(\s+` Attribute `)*\s*\/>/`  
 <a name="end-tag"></a>End tag ([regex](#ref-regex)): `/<\/` Identifier `\s*\/>/`  
 
+Namespace, tag and attribute names are case insensitive and are converted to lowercase.  
+
 
 
 ### //TODO
@@ -123,6 +125,7 @@ Attribute ([regex](#ref-regex)): `/` Identifier `(\s*=\s*([^"'\s]+|("[^"]*")|('[
 
 
 ## DOM
+If not stated otherwise, nml conforms the [Whatwg DOM Standard](#ref-dom). The following [Web IDL](#ref-webidl) code snippets may extend/implement classes and types that are not defined in this specifation – such classes are defined in the [Whatwg standard](#ref-dom).
 
 ### Document object
 //TODO
@@ -135,11 +138,15 @@ Attribute ([regex](#ref-regex)): `/` Identifier `(\s*=\s*([^"'\s]+|("[^"]*")|('[
 ## References
 
 ### Globaly recognized APIs
-//TODO
+* <a name="ns-html"></a>Hypertext Markup Language API
+* <a name="ns-form"></a>World Wide Web Form API
+* <a name="ns-svg" ></a>Simple Vector Graphics API
 
 ### External specifications
 * <a name="ref-regex"></a>[ecma-262 — Regular Expressions.](http://www.ecma-international.org/ecma-262/5.1/#sec-15.10)
-* <a name="ref-unicode"></a>[The Unicode Consortium. The Unicode Standard.](http://www.unicode.org/versions/latest/)
+* <a name="ref-unicode"></a>[The Unicode Consortium – The Unicode Standard.](http://www.unicode.org/versions/latest/)
+* <a name="ref-webidl"></a>[W3C – Web IDL.](http://www.w3.org/TR/WebIDL/)
+* <a name="ref-dom"></a>[Whatwg – DOM Standard.](http://dom.spec.whatwg.org/)
 
 
 
